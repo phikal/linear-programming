@@ -1,44 +1,8 @@
-### **PACKAGE** LINEAR-PROGRAMMING  
-The overall package.  Reexports the symbols from LINEAR-PROGRAMMING/PROBLEM and LINEAR-PROGRAMMING/SIMPLEX.
+### **PACKAGE** - LINEAR-PROGRAMMING   
+The overall package.  Reexports symbols from
+             LINEAR-PROGRAMMING/PROBLEM and LINEAR-PROGRAMMING/SIMPLEX.
 
-#### **PACKAGE** - LINEAR-PROGRAMMING/EXPRESSIONS 
-
-**FUNCTION** - SCALE-LINEAR-EXPRESSION (EXPR SCALAR)  
-Multiplies the linear expression by the given scalar
-
-**FUNCTION** - PARSE-LINEAR-EXPRESSION (EXPR)  
-Parses the expression into a alist mapping variables to coefficients.
-   Any constant values are mapped to +constant+
-
-**FUNCTION** - SUM-LINEAR-EXPRESSIONS (EXPRS)  
-Takes a list of linear expressions and reduces it into a single expression
-
-#### **PACKAGE** - LINEAR-PROGRAMMING/PROBLEM 
-
-**GENERIC** - OBJECTIVE-VARIABLE (OBJECT)
-
-**FUNCTION** - PARSE-LINEAR-PROBLEM (OBJECTIVE-EXP CONSTRAINTS)  
-Parses the expressions into a linear programming problem
-
-**FUNCTION** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
-Creates a linear problem from the expressions in the body
-
-**MACRO** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
-Creates a linear problem from the expressions in the body
-
-**GENERIC** - CONSTRAINTS (OBJECT)
-
-**GENERIC** - OBJECTIVE-FUNCTION (OBJECT)
-
-**GENERIC** - SIGNED-VARS (OBJECT)
-
-**GENERIC** - LP-TYPE (OBJECT)
-
-**CLASS** - LINEAR-PROBLEM 
-
-**GENERIC** - VARIABLES (OBJECT)
-
-#### **PACKAGE** - LINEAR-PROGRAMMING/SIMPLEX 
+### **PACKAGE** - LINEAR-PROGRAMMING/SIMPLEX 
 
 **FUNCTION** - TABLEAU-P (OBJECT)
 
@@ -86,4 +50,41 @@ Creates the tableau from the given linear problem.  If the trivial basis is
 Gets the shadow price for the given variable from the tableau
 
 **FUNCTION** - COPY-TABLEAU (INSTANCE)
+
+### **PACKAGE** - LINEAR-PROGRAMMING/PROBLEM 
+
+**GENERIC** - OBJECTIVE-VARIABLE (OBJECT)
+
+**FUNCTION** - PARSE-LINEAR-PROBLEM (OBJECTIVE-EXP CONSTRAINTS)  
+Parses the expressions into a linear programming problem
+
+**FUNCTION** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
+Creates a linear problem from the expressions in the body
+
+**MACRO** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
+Creates a linear problem from the expressions in the body
+
+**GENERIC** - CONSTRAINTS (OBJECT)
+
+**GENERIC** - OBJECTIVE-FUNCTION (OBJECT)
+
+**GENERIC** - SIGNED-VARS (OBJECT)
+
+**GENERIC** - LP-TYPE (OBJECT)
+
+**CLASS** - LINEAR-PROBLEM 
+
+**GENERIC** - VARIABLES (OBJECT)
+
+### **PACKAGE** - LINEAR-PROGRAMMING/EXPRESSIONS 
+
+**FUNCTION** - SCALE-LINEAR-EXPRESSION (EXPR SCALAR)  
+Multiplies the linear expression by the given scalar
+
+**FUNCTION** - PARSE-LINEAR-EXPRESSION (EXPR)  
+Parses the expression into a alist mapping variables to coefficients.
+   Any constant values are mapped to +constant+
+
+**FUNCTION** - SUM-LINEAR-EXPRESSIONS (EXPRS)  
+Takes a list of linear expressions and reduces it into a single expression
 
