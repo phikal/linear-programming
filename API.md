@@ -23,21 +23,15 @@ The overall package.  Reexports symbols from
 Gets the objective function value in the tableau
 
 **FUNCTION** - PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
-Applies a single pivot to the table.
+Destructively applies a single pivot to the table.
 
-**FUNCTION** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
-Evaluates the body with the variables in `var-list` bound to their values in
-   the tableau.  If a linear problem is instead passed as `var-list`, all
-   of the problem's variables are bound.
-
-**MACRO** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
-Evaluates the body with the variables in `var-list` bound to their values in
-   the tableau.  If a linear problem is instead passed as `var-list`, all
-   of the problem's variables are bound.
+**FUNCTION** - N-SOLVE-TABLEAU (TABLEAU)  
+A non-consing version of `solve-tableau`.
 
 **FUNCTION** - SOLVE-TABLEAU (TABLEAU)  
 Attempts to solve the tableau using the simplex method.  If a list of two
    tableaus is given, then a two-phase version is used.
+   The original tableau is unchanged
 
 **FUNCTION** - GET-TABLEAU-VARIABLE (VAR TABLEAU)  
 Gets the value of the given variable from the tableau
@@ -56,7 +50,18 @@ Creates the tableau from the given linear problem.  If the trivial basis is
 **FUNCTION** - GET-SHADOW-PRICE (VAR TABLEAU)  
 Gets the shadow price for the given variable from the tableau
 
-**FUNCTION** - COPY-TABLEAU (INSTANCE)
+**FUNCTION** - COPY-TABLEAU (TABLEAU)  
+Copies the given tableau and it's matrix
+
+**FUNCTION** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
+Evaluates the body with the variables in `var-list` bound to their values in
+   the tableau.  If a linear problem is instead passed as `var-list`, all
+   of the problem's variables are bound.
+
+**MACRO** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
+Evaluates the body with the variables in `var-list` bound to their values in
+   the tableau.  If a linear problem is instead passed as `var-list`, all
+   of the problem's variables are bound.
 
 ### **PACKAGE** - LINEAR-PROGRAMMING/PROBLEM 
 
