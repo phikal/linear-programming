@@ -1,3 +1,10 @@
+---
+layout: page
+title: API Documentation
+meta-description: The API Documentation for the linear-programming Common Lisp library.
+---
+
+
 ### **PACKAGE** - LINEAR-PROGRAMMING   
 The overall package.  Reexports symbols from
              LINEAR-PROGRAMMING/PROBLEM and LINEAR-PROGRAMMING/SIMPLEX.
