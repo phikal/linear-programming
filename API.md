@@ -5,12 +5,11 @@ meta-description: The API Documentation for the linear-programming Common Lisp l
 ---
 
 
-### **PACKAGE** - LINEAR-PROGRAMMING NIL  
-The overall package.  Reexports symbols from
-             LINEAR-PROGRAMMING/PROBLEM, LINEAR-PROGRAMMING/SOLVER and
-             LINEAR-PROGRAMMING/CONDITIONS.
+### **PACKAGE** - LINEAR-PROGRAMMING   
+NIL
 
-### **PACKAGE** - LINEAR-PROGRAMMING/PROBLEM NIL
+### **PACKAGE** - LINEAR-PROGRAMMING/PROBLEM   
+NIL
 
 **GENERIC** - OBJECTIVE-VARIABLE (OBJECT)
 
@@ -23,9 +22,8 @@ Creates a linear problem from the expressions in the body
 **MACRO** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
 Creates a linear problem from the expressions in the body
 
-**CONDITION** - PARSING-ERROR NIL  
-Indicates an error occured while parsing a linear problem.
-                   Includes a textual description of the issue.
+**CONDITION** - PARSING-ERROR   
+NIL
 
 **GENERIC** - CONSTRAINTS (OBJECT)
 
@@ -35,12 +33,13 @@ Indicates an error occured while parsing a linear problem.
 
 **GENERIC** - LP-TYPE (OBJECT)
 
-**CLASS** - LINEAR-PROBLEM NIL
+**CLASS** - LINEAR-PROBLEM   
+NIL
 
 **GENERIC** - VARIABLES (OBJECT)
 
-### **PACKAGE** - LINEAR-PROGRAMMING/SOLVER NIL  
-High level linear programming problem solving functions
+### **PACKAGE** - LINEAR-PROGRAMMING/SOLVER   
+NIL
 
 **FUNCTION** - SOLUTION-SHADOW-PRICE (SOLUTION VAR)  
 Gets the shadow price of the given variable in the solution
@@ -50,7 +49,8 @@ Solves the given linear problem
 
 **FUNCTION** - SOLUTION-PROBLEM (INSTANCE)
 
-**STRUCT** - SOLUTION NIL
+**STRUCT** - SOLUTION   
+NIL
 
 **FUNCTION** - WITH-SOLVED-PROBLEM ((OBJECTIVE-FUNC &REST CONSTRAINTS) &BODY BODY)  
 Takes the problem description, and evaluates `body` with the variables of
@@ -67,23 +67,23 @@ Takes the problem description, and evaluates `body` with the variables of
 **FUNCTION** - SOLUTION-VARIABLE (SOLUTION VAR)  
 Gets the value of the given variable in the solution
 
-### **PACKAGE** - LINEAR-PROGRAMMING/CONDITIONS NIL
+### **PACKAGE** - LINEAR-PROGRAMMING/CONDITIONS   
+NIL
 
-**CONDITION** - INFEASIBLE-PROBLEM-ERROR NIL  
-Indicates the there is no feasible region.
+**CONDITION** - INFEASIBLE-PROBLEM-ERROR   
+NIL
 
-**CONDITION** - SOLVER-ERROR NIL  
-The base class for errors that occur with the solving algorithm.
+**CONDITION** - SOLVER-ERROR   
+NIL
 
-**CONDITION** - UNBOUNDED-PROBLEM-ERROR NIL  
-Indicates the feasible region is unbounded such that the
-                   optimal objective value is infinite.
+**CONDITION** - UNBOUNDED-PROBLEM-ERROR   
+NIL
 
-**CONDITION** - PARSING-ERROR NIL  
-Indicates an error occured while parsing a linear problem.
-                   Includes a textual description of the issue.
+**CONDITION** - PARSING-ERROR   
+NIL
 
-### **PACKAGE** - LINEAR-PROGRAMMING/SIMPLEX NIL
+### **PACKAGE** - LINEAR-PROGRAMMING/SIMPLEX   
+NIL
 
 **FUNCTION** - N-PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
 Destructively applies a single pivot to the table.
@@ -92,7 +92,8 @@ Destructively applies a single pivot to the table.
 
 **FUNCTION** - TABLEAU-MATRIX (INSTANCE)
 
-**STRUCT** - TABLEAU NIL
+**STRUCT** - TABLEAU   
+NIL
 
 **FUNCTION** - TABLEAU-VAR-COUNT (INSTANCE)
 
@@ -137,7 +138,8 @@ Evaluates the body with the variables in `var-list` bound to their values in
 **FUNCTION** - TABLEAU-VARIABLE (VAR TABLEAU)  
 Gets the value of the given variable from the tableau
 
-### **PACKAGE** - LINEAR-PROGRAMMING/EXPRESSIONS NIL
+### **PACKAGE** - LINEAR-PROGRAMMING/EXPRESSIONS   
+NIL
 
 **FUNCTION** - SCALE-LINEAR-EXPRESSION (EXPR SCALAR)  
 Multiplies the linear expression by the given scalar
