@@ -17,6 +17,8 @@ The overall package.  Reexports symbols from
 **FUNCTION** - PARSE-LINEAR-PROBLEM (OBJECTIVE-EXP CONSTRAINTS)  
 Parses the expressions into a linear programming problem
 
+**GENERIC** - INTEGER-VARS (OBJECT)
+
 **FUNCTION** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
 Creates a linear problem from the expressions in the body
 
@@ -74,6 +76,8 @@ Indicates the there is no feasible region.
 
 **CONDITION** - SOLVER-ERROR   
 The base class for errors that occur with the solving algorithm.
+
+**CONDITION** - INFEASIBLE-INTEGER-CONSTRAINTS-ERROR 
 
 **CONDITION** - UNBOUNDED-PROBLEM-ERROR   
 Indicates the feasible region is unbounded such that the
