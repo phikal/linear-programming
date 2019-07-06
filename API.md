@@ -19,6 +19,8 @@ Parses the expressions into a linear programming problem
 
 **GENERIC** - INTEGER-VARS (OBJECT)
 
+**GENERIC** - SIGNED-VARS (OBJECT)
+
 **FUNCTION** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
 Creates a linear problem from the expressions in the body
 
@@ -32,8 +34,6 @@ Indicates an error occured while parsing a linear problem.
 **GENERIC** - CONSTRAINTS (OBJECT)
 
 **GENERIC** - OBJECTIVE-FUNCTION (OBJECT)
-
-**GENERIC** - SIGNED-VARS (OBJECT)
 
 **GENERIC** - LP-TYPE (OBJECT)
 
