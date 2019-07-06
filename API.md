@@ -71,6 +71,11 @@ Gets the value of the given variable in the solution
 
 ### **PACKAGE** - LINEAR-PROGRAMMING/CONDITIONS 
 
+**CONDITION** - NONLINEAR-ERROR   
+Indicates a form was not a linear expression.  This includes
+                   the use of nonlinear functions and taking the product of
+                   multiple variables
+
 **CONDITION** - INFEASIBLE-PROBLEM-ERROR   
 Indicates the there is no feasible region.
 
