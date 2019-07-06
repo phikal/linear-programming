@@ -103,6 +103,9 @@ Destructively applies a single pivot to the table.
 **FUNCTION** - TABLEAU-OBJECTIVE-VALUE (TABLEAU)  
 Gets the objective function value in the tableau
 
+**FUNCTION** - PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
+Non-destructively applies a single pivot to the table.
+
 **FUNCTION** - N-SOLVE-TABLEAU (TABLEAU)  
 A non-consing version of `solve-tableau`.
 
