@@ -153,6 +153,6 @@ Multiplies the linear expression by the given scalar
 Parses the expression into a alist mapping variables to coefficients.
    Any constant values are mapped to +constant+
 
-**FUNCTION** - SUM-LINEAR-EXPRESSIONS (EXPRS)  
+**FUNCTION** - SUM-LINEAR-EXPRESSIONS (&REST EXPRS)  
 Takes a list of linear expressions and reduces it into a single expression
 
