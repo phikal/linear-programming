@@ -6,7 +6,7 @@ meta-description: The API Documentation for the linear-programming Common Lisp l
 
 
 <br>
-### <a name="package-common-lisp-user:linear-programming"></a>**PACKAGE** - LINEAR-PROGRAMMING   
+### <a name="package-linear-programming"></a>**PACKAGE** - LINEAR-PROGRAMMING   
 The overall package for the linear programming library.
                    It contains only the reexported symbols of
                    [LINEAR-PROGRAMMING/PROBLEM](#package-linear-programming/problem),
@@ -14,7 +14,7 @@ The overall package for the linear programming library.
                    [LINEAR-PROGRAMMING/CONDITIONS](#package-linear-programming/conditions).
 
 <br>
-### <a name="package-common-lisp-user:linear-programming/problem"></a>**PACKAGE** - LINEAR-PROGRAMMING/PROBLEM   
+### <a name="package-linear-programming/problem"></a>**PACKAGE** - LINEAR-PROGRAMMING/PROBLEM   
 Handles the representation of linear programming problems.
 
 <a name="generic-linear-programming/problem:objective-variable"></a>**GENERIC** - OBJECTIVE-VARIABLE (OBJECT)  
@@ -35,10 +35,6 @@ Creates a linear problem from the expressions in the body
 <a name="macro-linear-programming/problem:make-linear-problem"></a>**MACRO** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
 Creates a linear problem from the expressions in the body
 
-<a name="condition-linear-programming/conditions:parsing-error"></a>**CONDITION** - PARSING-ERROR   
-Indicates an error occured while parsing a linear problem.
-                   Includes a textual description of the issue.
-
 <a name="generic-linear-programming/problem:constraints"></a>**GENERIC** - CONSTRAINTS (OBJECT)  
 A list of (in)equality constraints.
 
@@ -55,7 +51,7 @@ The representation of a linear programming problem.
 An array of the variables specified in the problem.
 
 <br>
-### <a name="package-common-lisp-user:linear-programming/solver"></a>**PACKAGE** - LINEAR-PROGRAMMING/SOLVER   
+### <a name="package-linear-programming/solver"></a>**PACKAGE** - LINEAR-PROGRAMMING/SOLVER   
 The high level linear programming solver interface.  This
                    package abstracts away some of the complexities of the
                    simplex method, including integer constraints.  See
@@ -91,7 +87,7 @@ The value of the objective function.
 Gets the value of the given variable in the solution
 
 <br>
-### <a name="package-common-lisp-user:linear-programming/conditions"></a>**PACKAGE** - LINEAR-PROGRAMMING/CONDITIONS   
+### <a name="package-linear-programming/conditions"></a>**PACKAGE** - LINEAR-PROGRAMMING/CONDITIONS   
 Contains the various conditions used by this library.
 
 <a name="condition-linear-programming/conditions:nonlinear-error"></a>**CONDITION** - NONLINEAR-ERROR   
@@ -118,7 +114,7 @@ Indicates an error occured while parsing a linear problem.
                    Includes a textual description of the issue.
 
 <br>
-### <a name="package-common-lisp-user:linear-programming/simplex"></a>**PACKAGE** - LINEAR-PROGRAMMING/SIMPLEX   
+### <a name="package-linear-programming/simplex"></a>**PACKAGE** - LINEAR-PROGRAMMING/SIMPLEX   
 The actual simplex solver implementation.
 
 <a name="function-linear-programming/simplex:n-pivot-row"></a>**FUNCTION** - N-PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
@@ -179,7 +175,7 @@ Evaluates the body with the variables in `var-list` bound to their values in
 Gets the value of the given variable from the tableau
 
 <br>
-### <a name="package-common-lisp-user:linear-programming/expressions"></a>**PACKAGE** - LINEAR-PROGRAMMING/EXPRESSIONS   
+### <a name="package-linear-programming/expressions"></a>**PACKAGE** - LINEAR-PROGRAMMING/EXPRESSIONS   
 Contains functions for processing linear expressions.
 
 <a name="function-linear-programming/expressions:scale-linear-expression"></a>**FUNCTION** - SCALE-LINEAR-EXPRESSION (EXPR SCALAR)  
