@@ -144,7 +144,7 @@ Attempts to solve the tableau using the simplex method.  If a list of two
    tableaus is given, then a two-phase version is used.
    The original tableau is unchanged
 
-<a name="function-linear-programming/simplex:tableau-shadow-price"></a>**FUNCTION** - TABLEAU-SHADOW-PRICE (VAR TABLEAU)  
+<a name="function-linear-programming/simplex:tableau-shadow-price"></a>**FUNCTION** - TABLEAU-SHADOW-PRICE (TABLEAU VAR)  
 Gets the shadow price for the given variable from the tableau
 
 <a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM)  
@@ -171,7 +171,7 @@ Evaluates the body with the variables in `var-list` bound to their values in
    the tableau.  If a linear problem is instead passed as `var-list`, all
    of the problem's variables are bound.
 
-<a name="function-linear-programming/simplex:tableau-variable"></a>**FUNCTION** - TABLEAU-VARIABLE (VAR TABLEAU)  
+<a name="function-linear-programming/simplex:tableau-variable"></a>**FUNCTION** - TABLEAU-VARIABLE (TABLEAU VAR)  
 Gets the value of the given variable from the tableau
 
 <br>
