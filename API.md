@@ -17,17 +17,26 @@ The overall package for the linear programming library.
 ### <a name="package-linear-programming/problem"></a>**PACKAGE** - LINEAR-PROGRAMMING/PROBLEM   
 Handles the representation of linear programming problems.
 
-<a name="generic-linear-programming/problem:objective-variable"></a>**GENERIC** - OBJECTIVE-VARIABLE (OBJECT)  
-The name of the objective function.
+<a name="function-linear-programming/problem:problem-type"></a>**FUNCTION** - PROBLEM-TYPE (INSTANCE)  
+Whether the problem is a `min` or `max` problem.
+
+<a name="function-linear-programming/problem:problem-objective-func"></a>**FUNCTION** - PROBLEM-OBJECTIVE-FUNC (INSTANCE)  
+The objective function as a linear expression alist.
+
+<a name="function-linear-programming/problem:problem-objective-var"></a>**FUNCTION** - PROBLEM-OBJECTIVE-VAR (INSTANCE)
+
+<a name="function-linear-programming/problem:problem-vars"></a>**FUNCTION** - PROBLEM-VARS (INSTANCE)  
+An array of the variables specified in the problem.
 
 <a name="function-linear-programming/problem:parse-linear-problem"></a>**FUNCTION** - PARSE-LINEAR-PROBLEM (OBJECTIVE-EXP CONSTRAINTS)  
 Parses the expressions into a linear programming problem
 
-<a name="generic-linear-programming/problem:integer-vars"></a>**GENERIC** - INTEGER-VARS (OBJECT)  
-A list of variables with integer constraints.
+<a name="function-linear-programming/problem:problem-constraints"></a>**FUNCTION** - PROBLEM-CONSTRAINTS (INSTANCE)  
+A list of (in)equality constraints.
 
-<a name="generic-linear-programming/problem:signed-vars"></a>**GENERIC** - SIGNED-VARS (OBJECT)  
-A list of variables without positivity constraints.
+<a name="function-linear-programming/problem:make-problem"></a>**FUNCTION** - MAKE-PROBLEM (&KEY ((TYPE TYPE) 'MAX) ((VARS VARS) #()) ((OBJECTIVE-VAR OBJECTIVE-VAR) 'Z)
+ ((OBJECTIVE-FUNC OBJECTIVE-FUNC) NIL) ((SIGNED-VARS SIGNED-VARS) NIL)
+ ((INTEGER-VARS INTEGER-VARS) NIL) ((CONSTRAINTS CONSTRAINTS) NIL))
 
 <a name="function-linear-programming/problem:make-linear-problem"></a>**FUNCTION** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
 Creates a linear problem from the expressions in the body
@@ -35,20 +44,14 @@ Creates a linear problem from the expressions in the body
 <a name="macro-linear-programming/problem:make-linear-problem"></a>**MACRO** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
 Creates a linear problem from the expressions in the body
 
-<a name="generic-linear-programming/problem:constraints"></a>**GENERIC** - CONSTRAINTS (OBJECT)  
-A list of (in)equality constraints.
+<a name="function-linear-programming/problem:problem-integer-vars"></a>**FUNCTION** - PROBLEM-INTEGER-VARS (INSTANCE)  
+A list of variables with integer constraints.
 
-<a name="generic-linear-programming/problem:objective-function"></a>**GENERIC** - OBJECTIVE-FUNCTION (OBJECT)  
-The objective function as a linear expression alist.
-
-<a name="generic-linear-programming/problem:lp-type"></a>**GENERIC** - LP-TYPE (OBJECT)  
-Whether the problem is a `min` or `max` problem.
-
-<a name="class-linear-programming/problem:linear-problem"></a>**CLASS** - LINEAR-PROBLEM   
+<a name="struct-linear-programming/problem:problem"></a>**STRUCT** - PROBLEM   
 The representation of a linear programming problem.
 
-<a name="generic-linear-programming/problem:variables"></a>**GENERIC** - VARIABLES (OBJECT)  
-An array of the variables specified in the problem.
+<a name="function-linear-programming/problem:problem-signed-vars"></a>**FUNCTION** - PROBLEM-SIGNED-VARS (INSTANCE)  
+A list of variables without positivity constraints.
 
 <br>
 ### <a name="package-linear-programming/solver"></a>**PACKAGE** - LINEAR-PROGRAMMING/SOLVER   
