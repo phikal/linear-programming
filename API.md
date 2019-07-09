@@ -70,6 +70,19 @@ The problem that resulted in this solution.
 <a name="struct-linear-programming/solver:solution"></a>**STRUCT** - SOLUTION   
 Represents a solution to a linear programming problem.
 
+<a name="function-linear-programming/solver:with-solution-variables"></a>**FUNCTION** - WITH-SOLUTION-VARIABLES (VAR-LIST SOLUTION &BODY BODY)  
+Evaluates the body with the variables in `var-list` bound to their values in
+   the solution.  If a linear problem is instead passed as `var-list`, all
+   of the problem's variables are bound.
+
+<a name="macro-linear-programming/solver:with-solution-variables"></a>**MACRO** - WITH-SOLUTION-VARIABLES (VAR-LIST SOLUTION &BODY BODY)  
+Evaluates the body with the variables in `var-list` bound to their values in
+   the solution.  If a linear problem is instead passed as `var-list`, all
+   of the problem's variables are bound.
+
+<a name="function-linear-programming/solver:solution-variable"></a>**FUNCTION** - SOLUTION-VARIABLE (SOLUTION VAR)  
+Gets the value of the given variable in the solution
+
 <a name="function-linear-programming/solver:with-solved-problem"></a>**FUNCTION** - WITH-SOLVED-PROBLEM ((OBJECTIVE-FUNC &REST CONSTRAINTS) &BODY BODY)  
 Takes the problem description, and evaluates `body` with the variables of
    the problem bound to their solution values.  Additionally, a macro
@@ -82,9 +95,6 @@ Takes the problem description, and evaluates `body` with the variables of
 
 <a name="function-linear-programming/solver:solution-objective-value"></a>**FUNCTION** - SOLUTION-OBJECTIVE-VALUE (INSTANCE)  
 The value of the objective function.
-
-<a name="function-linear-programming/solver:solution-variable"></a>**FUNCTION** - SOLUTION-VARIABLE (SOLUTION VAR)  
-Gets the value of the given variable in the solution
 
 <br>
 ### <a name="package-linear-programming/conditions"></a>**PACKAGE** - LINEAR-PROGRAMMING/CONDITIONS   
