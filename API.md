@@ -23,7 +23,8 @@ Whether the problem is a `min` or `max` problem.
 <a name="function-linear-programming/problem:problem-objective-func"></a>**FUNCTION** - PROBLEM-OBJECTIVE-FUNC (INSTANCE)  
 The objective function as a linear expression alist.
 
-<a name="function-linear-programming/problem:problem-objective-var"></a>**FUNCTION** - PROBLEM-OBJECTIVE-VAR (INSTANCE)
+<a name="function-linear-programming/problem:problem-objective-var"></a>**FUNCTION** - PROBLEM-OBJECTIVE-VAR (INSTANCE)  
+The name of the objective function.
 
 <a name="function-linear-programming/problem:problem-vars"></a>**FUNCTION** - PROBLEM-VARS (INSTANCE)  
 An array of the variables specified in the problem.
@@ -33,10 +34,6 @@ Parses the expressions into a linear programming problem
 
 <a name="function-linear-programming/problem:problem-constraints"></a>**FUNCTION** - PROBLEM-CONSTRAINTS (INSTANCE)  
 A list of (in)equality constraints.
-
-<a name="function-linear-programming/problem:make-problem"></a>**FUNCTION** - MAKE-PROBLEM (&KEY ((TYPE TYPE) 'MAX) ((VARS VARS) #()) ((OBJECTIVE-VAR OBJECTIVE-VAR) 'Z)
- ((OBJECTIVE-FUNC OBJECTIVE-FUNC) NIL) ((SIGNED-VARS SIGNED-VARS) NIL)
- ((INTEGER-VARS INTEGER-VARS) NIL) ((CONSTRAINTS CONSTRAINTS) NIL))
 
 <a name="function-linear-programming/problem:make-linear-problem"></a>**FUNCTION** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
 Creates a linear problem from the expressions in the body
