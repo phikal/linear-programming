@@ -17,34 +17,34 @@ The overall package for the linear programming library.
 ### <a name="package-linear-programming/problem"></a>**PACKAGE** - LINEAR-PROGRAMMING/PROBLEM   
 Handles the representation of linear programming problems.
 
-<a name="function-linear-programming/problem:problem-type"></a>**FUNCTION** - PROBLEM-TYPE (INSTANCE)  
+<a name="nil-linear-programming/problem:problem-type"></a>**NIL** - PROBLEM-TYPE (INSTANCE)  
 Whether the problem is a `min` or `max` problem.
 
-<a name="function-linear-programming/problem:problem-objective-func"></a>**FUNCTION** - PROBLEM-OBJECTIVE-FUNC (INSTANCE)  
+<a name="nil-linear-programming/problem:problem-objective-func"></a>**NIL** - PROBLEM-OBJECTIVE-FUNC (INSTANCE)  
 The objective function as a linear expression alist.
 
-<a name="function-linear-programming/problem:problem-objective-var"></a>**FUNCTION** - PROBLEM-OBJECTIVE-VAR (INSTANCE)  
+<a name="nil-linear-programming/problem:problem-objective-var"></a>**NIL** - PROBLEM-OBJECTIVE-VAR (INSTANCE)  
 The name of the objective function.
 
-<a name="function-linear-programming/problem:problem-vars"></a>**FUNCTION** - PROBLEM-VARS (INSTANCE)  
+<a name="nil-linear-programming/problem:problem-vars"></a>**NIL** - PROBLEM-VARS (INSTANCE)  
 An array of the variables specified in the problem.
 
-<a name="function-linear-programming/problem:parse-linear-problem"></a>**FUNCTION** - PARSE-LINEAR-PROBLEM (OBJECTIVE-EXP CONSTRAINTS)  
+<a name="nil-linear-programming/problem:parse-linear-problem"></a>**NIL** - PARSE-LINEAR-PROBLEM (OBJECTIVE-EXP CONSTRAINTS)  
 Parses the expressions into a linear programming problem
 
-<a name="function-linear-programming/problem:problem-constraints"></a>**FUNCTION** - PROBLEM-CONSTRAINTS (INSTANCE)  
+<a name="nil-linear-programming/problem:problem-constraints"></a>**NIL** - PROBLEM-CONSTRAINTS (INSTANCE)  
 A list of (in)equality constraints.
 
 <a name="macro-linear-programming/problem:make-linear-problem"></a>**MACRO** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
 Creates a linear problem from the expressions in the body
 
-<a name="function-linear-programming/problem:problem-integer-vars"></a>**FUNCTION** - PROBLEM-INTEGER-VARS (INSTANCE)  
+<a name="nil-linear-programming/problem:problem-integer-vars"></a>**NIL** - PROBLEM-INTEGER-VARS (INSTANCE)  
 A list of variables with integer constraints.
 
 <a name="struct-linear-programming/problem:problem"></a>**STRUCT** - PROBLEM   
 The representation of a linear programming problem.
 
-<a name="function-linear-programming/problem:problem-signed-vars"></a>**FUNCTION** - PROBLEM-SIGNED-VARS (INSTANCE)  
+<a name="nil-linear-programming/problem:problem-signed-vars"></a>**NIL** - PROBLEM-SIGNED-VARS (INSTANCE)  
 A list of variables without positivity constraints.
 
 <br>
@@ -55,13 +55,13 @@ The high level linear programming solver interface.  This
                    [LINEAR-PROGRAMMING/SIMPLEX](#package-linear-programming/simplex)
                    for lower level control of the solver.
 
-<a name="function-linear-programming/solver:solution-shadow-price"></a>**FUNCTION** - SOLUTION-SHADOW-PRICE (SOLUTION VAR)  
+<a name="nil-linear-programming/solver:solution-shadow-price"></a>**NIL** - SOLUTION-SHADOW-PRICE (SOLUTION VAR)  
 Gets the shadow price of the given variable in the solution
 
-<a name="function-linear-programming/solver:solve-problem"></a>**FUNCTION** - SOLVE-PROBLEM (PROBLEM)  
+<a name="nil-linear-programming/solver:solve-problem"></a>**NIL** - SOLVE-PROBLEM (PROBLEM)  
 Solves the given linear problem
 
-<a name="function-linear-programming/solver:solution-problem"></a>**FUNCTION** - SOLUTION-PROBLEM (INSTANCE)  
+<a name="nil-linear-programming/solver:solution-problem"></a>**NIL** - SOLUTION-PROBLEM (INSTANCE)  
 The problem that resulted in this solution.
 
 <a name="struct-linear-programming/solver:solution"></a>**STRUCT** - SOLUTION   
@@ -72,7 +72,7 @@ Evaluates the body with the variables in `var-list` bound to their values in
    the solution.  If a linear problem is instead passed as `var-list`, all
    of the problem's variables are bound.
 
-<a name="function-linear-programming/solver:solution-variable"></a>**FUNCTION** - SOLUTION-VARIABLE (SOLUTION VAR)  
+<a name="nil-linear-programming/solver:solution-variable"></a>**NIL** - SOLUTION-VARIABLE (SOLUTION VAR)  
 Gets the value of the given variable in the solution
 
 <a name="macro-linear-programming/solver:with-solved-problem"></a>**MACRO** - WITH-SOLVED-PROBLEM ((OBJECTIVE-FUNC &REST CONSTRAINTS) &BODY BODY)  
@@ -80,7 +80,7 @@ Takes the problem description, and evaluates `body` with the variables of
    the problem bound to their solution values.  Additionally, a macro
    `(shadow-price var)` is bound to get the shadow price of `var`.
 
-<a name="function-linear-programming/solver:solution-objective-value"></a>**FUNCTION** - SOLUTION-OBJECTIVE-VALUE (INSTANCE)  
+<a name="nil-linear-programming/solver:solution-objective-value"></a>**NIL** - SOLUTION-OBJECTIVE-VALUE (INSTANCE)  
 The value of the objective function.
 
 <br>
@@ -114,48 +114,48 @@ Indicates an error occured while parsing a linear problem.
 ### <a name="package-linear-programming/simplex"></a>**PACKAGE** - LINEAR-PROGRAMMING/SIMPLEX   
 The actual simplex solver implementation.
 
-<a name="function-linear-programming/simplex:n-pivot-row"></a>**FUNCTION** - N-PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
+<a name="nil-linear-programming/simplex:n-pivot-row"></a>**NIL** - N-PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
 Destructively applies a single pivot to the table.
 
-<a name="function-linear-programming/simplex:tableau-p"></a>**FUNCTION** - TABLEAU-P (OBJECT)
+<a name="nil-linear-programming/simplex:tableau-p"></a>**NIL** - TABLEAU-P (OBJECT)
 
-<a name="function-linear-programming/simplex:tableau-matrix"></a>**FUNCTION** - TABLEAU-MATRIX (INSTANCE)
+<a name="nil-linear-programming/simplex:tableau-matrix"></a>**NIL** - TABLEAU-MATRIX (INSTANCE)
 
 <a name="struct-linear-programming/simplex:tableau"></a>**STRUCT** - TABLEAU   
 Contains the necessary information for a simplex tableau.
 
-<a name="function-linear-programming/simplex:tableau-var-count"></a>**FUNCTION** - TABLEAU-VAR-COUNT (INSTANCE)
+<a name="nil-linear-programming/simplex:tableau-var-count"></a>**NIL** - TABLEAU-VAR-COUNT (INSTANCE)
 
-<a name="function-linear-programming/simplex:tableau-objective-value"></a>**FUNCTION** - TABLEAU-OBJECTIVE-VALUE (TABLEAU)  
+<a name="nil-linear-programming/simplex:tableau-objective-value"></a>**NIL** - TABLEAU-OBJECTIVE-VALUE (TABLEAU)  
 Gets the objective function value in the tableau
 
-<a name="function-linear-programming/simplex:pivot-row"></a>**FUNCTION** - PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
+<a name="nil-linear-programming/simplex:pivot-row"></a>**NIL** - PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
 Non-destructively applies a single pivot to the table.
 
-<a name="function-linear-programming/simplex:n-solve-tableau"></a>**FUNCTION** - N-SOLVE-TABLEAU (TABLEAU)  
+<a name="nil-linear-programming/simplex:n-solve-tableau"></a>**NIL** - N-SOLVE-TABLEAU (TABLEAU)  
 A non-consing version of
    [`solve-tableau`](#function-linear-programming/simplex:solve-tableau).
 
-<a name="function-linear-programming/simplex:solve-tableau"></a>**FUNCTION** - SOLVE-TABLEAU (TABLEAU)  
+<a name="nil-linear-programming/simplex:solve-tableau"></a>**NIL** - SOLVE-TABLEAU (TABLEAU)  
 Attempts to solve the tableau using the simplex method.  If a list of two
    tableaus is given, then a two-phase version is used.
    The original tableau is unchanged
 
-<a name="function-linear-programming/simplex:tableau-shadow-price"></a>**FUNCTION** - TABLEAU-SHADOW-PRICE (TABLEAU VAR)  
+<a name="nil-linear-programming/simplex:tableau-shadow-price"></a>**NIL** - TABLEAU-SHADOW-PRICE (TABLEAU VAR)  
 Gets the shadow price for the given variable from the tableau
 
-<a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM)  
+<a name="nil-linear-programming/simplex:build-tableau"></a>**NIL** - BUILD-TABLEAU (PROBLEM)  
 Creates the tableau from the given linear problem.  If the trivial basis is
    not feasible, instead a list is returned containing the two tableaus for a
    two-phase simplex method.
 
-<a name="function-linear-programming/simplex:tableau-basis-columns"></a>**FUNCTION** - TABLEAU-BASIS-COLUMNS (INSTANCE)
+<a name="nil-linear-programming/simplex:tableau-basis-columns"></a>**NIL** - TABLEAU-BASIS-COLUMNS (INSTANCE)
 
-<a name="function-linear-programming/simplex:tableau-constraint-count"></a>**FUNCTION** - TABLEAU-CONSTRAINT-COUNT (INSTANCE)
+<a name="nil-linear-programming/simplex:tableau-constraint-count"></a>**NIL** - TABLEAU-CONSTRAINT-COUNT (INSTANCE)
 
-<a name="function-linear-programming/simplex:tableau-problem"></a>**FUNCTION** - TABLEAU-PROBLEM (INSTANCE)
+<a name="nil-linear-programming/simplex:tableau-problem"></a>**NIL** - TABLEAU-PROBLEM (INSTANCE)
 
-<a name="function-linear-programming/simplex:copy-tableau"></a>**FUNCTION** - COPY-TABLEAU (TABLEAU)  
+<a name="nil-linear-programming/simplex:copy-tableau"></a>**NIL** - COPY-TABLEAU (TABLEAU)  
 Copies the given tableau and it's matrix
 
 <a name="macro-linear-programming/simplex:with-tableau-variables"></a>**MACRO** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
@@ -163,20 +163,20 @@ Evaluates the body with the variables in `var-list` bound to their values in
    the tableau.  If a linear problem is instead passed as `var-list`, all
    of the problem's variables are bound.
 
-<a name="function-linear-programming/simplex:tableau-variable"></a>**FUNCTION** - TABLEAU-VARIABLE (TABLEAU VAR)  
+<a name="nil-linear-programming/simplex:tableau-variable"></a>**NIL** - TABLEAU-VARIABLE (TABLEAU VAR)  
 Gets the value of the given variable from the tableau
 
 <br>
 ### <a name="package-linear-programming/expressions"></a>**PACKAGE** - LINEAR-PROGRAMMING/EXPRESSIONS   
 Contains functions for processing linear expressions.
 
-<a name="function-linear-programming/expressions:scale-linear-expression"></a>**FUNCTION** - SCALE-LINEAR-EXPRESSION (EXPR SCALAR)  
+<a name="nil-linear-programming/expressions:scale-linear-expression"></a>**NIL** - SCALE-LINEAR-EXPRESSION (EXPR SCALAR)  
 Multiplies the linear expression by the given scalar
 
-<a name="function-linear-programming/expressions:parse-linear-expression"></a>**FUNCTION** - PARSE-LINEAR-EXPRESSION (EXPR)  
+<a name="nil-linear-programming/expressions:parse-linear-expression"></a>**NIL** - PARSE-LINEAR-EXPRESSION (EXPR)  
 Parses the expression into a alist mapping variables to coefficients.
    Any constant values are mapped to `+constant+`
 
-<a name="function-linear-programming/expressions:sum-linear-expressions"></a>**FUNCTION** - SUM-LINEAR-EXPRESSIONS (&REST EXPRS)  
+<a name="nil-linear-programming/expressions:sum-linear-expressions"></a>**NIL** - SUM-LINEAR-EXPRESSIONS (&REST EXPRS)  
 Takes a list of linear expressions and reduces it into a single expression
 
