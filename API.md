@@ -35,9 +35,6 @@ Parses the expressions into a linear programming problem
 <a name="function-linear-programming/problem:problem-constraints"></a>**FUNCTION** - PROBLEM-CONSTRAINTS (INSTANCE)  
 A list of (in)equality constraints.
 
-<a name="function-linear-programming/problem:make-linear-problem"></a>**FUNCTION** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
-Creates a linear problem from the expressions in the body
-
 <a name="macro-linear-programming/problem:make-linear-problem"></a>**MACRO** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
 Creates a linear problem from the expressions in the body
 
@@ -70,11 +67,6 @@ The problem that resulted in this solution.
 <a name="struct-linear-programming/solver:solution"></a>**STRUCT** - SOLUTION   
 Represents a solution to a linear programming problem.
 
-<a name="function-linear-programming/solver:with-solution-variables"></a>**FUNCTION** - WITH-SOLUTION-VARIABLES (VAR-LIST SOLUTION &BODY BODY)  
-Evaluates the body with the variables in `var-list` bound to their values in
-   the solution.  If a linear problem is instead passed as `var-list`, all
-   of the problem's variables are bound.
-
 <a name="macro-linear-programming/solver:with-solution-variables"></a>**MACRO** - WITH-SOLUTION-VARIABLES (VAR-LIST SOLUTION &BODY BODY)  
 Evaluates the body with the variables in `var-list` bound to their values in
    the solution.  If a linear problem is instead passed as `var-list`, all
@@ -82,11 +74,6 @@ Evaluates the body with the variables in `var-list` bound to their values in
 
 <a name="function-linear-programming/solver:solution-variable"></a>**FUNCTION** - SOLUTION-VARIABLE (SOLUTION VAR)  
 Gets the value of the given variable in the solution
-
-<a name="function-linear-programming/solver:with-solved-problem"></a>**FUNCTION** - WITH-SOLVED-PROBLEM ((OBJECTIVE-FUNC &REST CONSTRAINTS) &BODY BODY)  
-Takes the problem description, and evaluates `body` with the variables of
-   the problem bound to their solution values.  Additionally, a macro
-   `(shadow-price var)` is bound to get the shadow price of `var`.
 
 <a name="macro-linear-programming/solver:with-solved-problem"></a>**MACRO** - WITH-SOLVED-PROBLEM ((OBJECTIVE-FUNC &REST CONSTRAINTS) &BODY BODY)  
 Takes the problem description, and evaluates `body` with the variables of
@@ -170,11 +157,6 @@ Creates the tableau from the given linear problem.  If the trivial basis is
 
 <a name="function-linear-programming/simplex:copy-tableau"></a>**FUNCTION** - COPY-TABLEAU (TABLEAU)  
 Copies the given tableau and it's matrix
-
-<a name="function-linear-programming/simplex:with-tableau-variables"></a>**FUNCTION** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
-Evaluates the body with the variables in `var-list` bound to their values in
-   the tableau.  If a linear problem is instead passed as `var-list`, all
-   of the problem's variables are bound.
 
 <a name="macro-linear-programming/simplex:with-tableau-variables"></a>**MACRO** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
 Evaluates the body with the variables in `var-list` bound to their values in
