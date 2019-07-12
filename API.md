@@ -44,9 +44,6 @@ A list of variables with integer constraints.
 <a name="struct-linear-programming/problem:problem"></a>**STRUCT** - PROBLEM   
 The representation of a linear programming problem.
 
-<a name="function-linear-programming/problem:problem-signed-vars"></a>**FUNCTION** - PROBLEM-SIGNED-VARS (INSTANCE)  
-A list of variables without positivity constraints.
-
 <br>
 ### <a name="package-linear-programming/solver"></a>**PACKAGE** - LINEAR-PROGRAMMING/SOLVER   
 The high level linear programming solver interface.  This
