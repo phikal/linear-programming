@@ -66,8 +66,7 @@ Represents a solution to a linear programming problem.
 
 <a name="macro-linear-programming/solver:with-solution-variables"></a>**MACRO** - WITH-SOLUTION-VARIABLES (VAR-LIST SOLUTION &BODY BODY)  
 Evaluates the body with the variables in `var-list` bound to their values in
-   the solution.  If a linear problem is instead passed as `var-list`, all
-   of the problem's variables are bound.
+   the solution.
 
 <a name="function-linear-programming/solver:solution-variable"></a>**FUNCTION** - SOLUTION-VARIABLE (SOLUTION VAR)  
 Gets the value of the given variable in the solution
@@ -157,8 +156,7 @@ Copies the given tableau and it's matrix
 
 <a name="macro-linear-programming/simplex:with-tableau-variables"></a>**MACRO** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
 Evaluates the body with the variables in `var-list` bound to their values in
-   the tableau.  If a linear problem is instead passed as `var-list`, all
-   of the problem's variables are bound.
+   the tableau.
 
 <a name="function-linear-programming/simplex:tableau-variable"></a>**FUNCTION** - TABLEAU-VARIABLE (TABLEAU VAR)  
 Gets the value of the given variable from the tableau
