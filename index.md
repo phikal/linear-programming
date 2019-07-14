@@ -8,8 +8,10 @@ meta-description: The documentation page for the linear-programming Common Lisp 
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/8rx1x28xxx7tkis4/branch/master?svg=true)](https://ci.appveyor.com/project/neil-lindquist/linear-programming/branch/master)
 [![Coverage Status](https://coveralls.io/repos/github/neil-lindquist/linear-programming/badge.svg?branch=master)](https://coveralls.io/github/neil-lindquist/linear-programming?branch=master)
 
+![MIT License](https://img.shields.io/github/license/neil-lindquist/linear-programming.svg?color=informational)
 [![GitHub release](https://img.shields.io/github/release/neil-lindquist/linear-programming.svg)](https://github.com/neil-lindquist/linear-programming/releases)
 [![Current documentation](https://img.shields.io/badge/docs-current-informational.svg)](https://neil-lindquist.github.io/linear-programming/)
+
 
 
 This is a Common Lisp library for solving linear programming problems.
