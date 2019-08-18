@@ -22,4 +22,4 @@ install:
 build: off
 
 test_script:
-  - ros exec run-fiveam.ros -e t linear-programming-tests:linear-programming
+  - ros exec run-fiveam.ros -e t -l linear-programming-test linear-programming-tests:linear-programming
