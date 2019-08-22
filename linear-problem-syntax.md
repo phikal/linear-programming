@@ -21,6 +21,7 @@ Consider the following linear programming problem.
 > such that  
 > * 2x + y &#x2264; 8  
 > * y + z &#x2264; 7
+> * x, y, z &#x2265; 0
 
 This problem can be represented as follows.
 ```common-lisp
