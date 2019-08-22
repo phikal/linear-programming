@@ -36,6 +36,7 @@ Consider the following linear programming problem.
 > such that  
 > * 2x + y &#x2264; 8  
 > * y + z &#x2264; 7
+> * x, y, z &#x2265; 0
 
 First, the problem needs to be specified.
 Problems are specified with a simple DSL, as described in the [syntax reference](https://neil-lindquist.github.io/linear-programming/linear-problem-syntax).
