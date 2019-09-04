@@ -10,8 +10,9 @@ meta-description: The API Documentation for the linear-programming Common Lisp l
 The overall package for the linear programming library.
                    It contains only the reexported symbols of
                    [LINEAR-PROGRAMMING/PROBLEM](#package-linear-programming/problem),
-                   [LINEAR-PROGRAMMING/SOLVER](#package-linear-programming/solver), and
-                   [LINEAR-PROGRAMMING/CONDITIONS](#package-linear-programming/conditions).
+                   [LINEAR-PROGRAMMING/SOLVER](#package-linear-programming/solver),
+                   [LINEAR-PROGRAMMING/CONDITIONS](#package-linear-programming/conditions), and
+                   [LINEAR-PROGRAMMING/EXTERNAL-FORMATS](#package-linear-programming/external-formats).
 
 <br>
 ### <a name="package-linear-programming/problem"></a>**PACKAGE** - LINEAR-PROGRAMMING/PROBLEM   
@@ -78,6 +79,24 @@ Takes the problem description, and evaluates `body` with the variables of
 
 <a name="function-linear-programming/solver:solution-objective-value"></a>**FUNCTION** - SOLUTION-OBJECTIVE-VALUE (INSTANCE)  
 The value of the objective function.
+
+<br>
+### <a name="package-linear-programming/external-formats"></a>**PACKAGE** - LINEAR-PROGRAMMING/EXTERNAL-FORMATS   
+Contains functions for loading and writing textual
+    representations for linear programming problems.
+
+<a name="function-linear-programming/external-formats:read-sexp"></a>**FUNCTION** - READ-SEXP (STREAM &KEY ALLOW-READ-EVAL PACKAGE)  
+Loads a problem stored in sexp format.  This is a single sexp with the first
+   element being the objective function and the rest of the elements being the
+   constraints.  Note that normally `*READ-EVAL*` is bound to `NIL`, but can be
+   enabled with `ALLOW-READ_EVAL`; however, this should only be done when
+   parsing trusted data.
+   See `WRITE-SEXP`
+
+<a name="function-linear-programming/external-formats:write-sexp"></a>**FUNCTION** - WRITE-SEXP (STREAM PROBLEM &KEY PACKAGE)  
+Writes the problem as a sexp.  The first element is the objective function
+   and the rest of the elements are the constraints
+   See `LOAD-SEXP`
 
 <br>
 ### <a name="package-linear-programming/conditions"></a>**PACKAGE** - LINEAR-PROGRAMMING/CONDITIONS   
@@ -167,6 +186,9 @@ Contains functions for processing linear expressions.
 
 <a name="function-linear-programming/expressions:scale-linear-expression"></a>**FUNCTION** - SCALE-LINEAR-EXPRESSION (EXPR SCALAR)  
 Multiplies the linear expression by the given scalar
+
+<a name="function-linear-programming/expressions:format-linear-expression"></a>**FUNCTION** - FORMAT-LINEAR-EXPRESSION (ALIST)  
+Formats a linear expression as a sexp
 
 <a name="function-linear-programming/expressions:parse-linear-expression"></a>**FUNCTION** - PARSE-LINEAR-EXPRESSION (EXPR)  
 Parses the expression into a alist mapping variables to coefficients.
