@@ -47,17 +47,16 @@ The representation of a linear programming problem.
 
 <br>
 ### <a name="package-linear-programming/solver"></a>**PACKAGE** - LINEAR-PROGRAMMING/SOLVER   
-The high level linear programming solver interface.  This
-                   package abstracts away some of the complexities of the
-                   simplex method, including integer constraints.  See
-                   [LINEAR-PROGRAMMING/SIMPLEX](#package-linear-programming/simplex)
-                   for lower level control of the solver.
+The high level linear programming solver interface. This package abstracts away
+some of the complexities of the simplex method, including integer constraints.
+See [LINEAR-PROGRAMMING/SIMPLEX](#package-linear-programming/simplex) for lower
+level control of the solver.
 
 <a name="function-linear-programming/solver:solution-shadow-price"></a>**FUNCTION** - SOLUTION-SHADOW-PRICE (SOLUTION VAR)  
-Gets the shadow price of the given variable in the solution
+Gets the shadow price of the given variable in the solution.
 
 <a name="function-linear-programming/solver:solve-problem"></a>**FUNCTION** - SOLVE-PROBLEM (PROBLEM)  
-Solves the given linear problem
+Solves the given linear problem.
 
 <a name="function-linear-programming/solver:solution-problem"></a>**FUNCTION** - SOLUTION-PROBLEM (INSTANCE)  
 The problem that resulted in this solution.
@@ -66,46 +65,42 @@ The problem that resulted in this solution.
 Represents a solution to a linear programming problem.
 
 <a name="macro-linear-programming/solver:with-solution-variables"></a>**MACRO** - WITH-SOLUTION-VARIABLES (VAR-LIST SOLUTION &BODY BODY)  
-Evaluates the body with the variables in `var-list` bound to their values in
-   the solution.
+Evaluates the body with the variables in `var-list` bound to their values in the
+solution.
 
 <a name="function-linear-programming/solver:solution-variable"></a>**FUNCTION** - SOLUTION-VARIABLE (SOLUTION VAR)  
-Gets the value of the given variable in the solution
+Gets the value of the given variable in the solution.
 
 <a name="macro-linear-programming/solver:with-solved-problem"></a>**MACRO** - WITH-SOLVED-PROBLEM ((OBJECTIVE-FUNC &REST CONSTRAINTS) &BODY BODY)  
-Takes the problem description, and evaluates `body` with the variables of
-   the problem bound to their solution values.  Additionally, a macro
-   `(shadow-price var)` is bound to get the shadow price of `var`.
+Takes the problem description, and evaluates `body` with the variables of the
+problem bound to their solution values. Additionally, the macro `shadow-price`
+is locally bound that takes a variable name and provides it's shadow price.
 
 <a name="function-linear-programming/solver:solution-objective-value"></a>**FUNCTION** - SOLUTION-OBJECTIVE-VALUE (INSTANCE)  
 The value of the objective function.
 
 <br>
 ### <a name="package-linear-programming/external-formats"></a>**PACKAGE** - LINEAR-PROGRAMMING/EXTERNAL-FORMATS   
-Contains functions for loading and writing textual
-    representations for linear programming problems.
+Handles reading and writing problems to external formats.
 
 <a name="function-linear-programming/external-formats:read-sexp"></a>**FUNCTION** - READ-SEXP (STREAM &KEY ALLOW-READ-EVAL PACKAGE)  
 Loads a problem stored in sexp format.  This is a single sexp with the first
-   element being the objective function and the rest of the elements being the
-   constraints.  Note that normally `*READ-EVAL*` is bound to `NIL`, but can be
-   enabled with `ALLOW-READ_EVAL`; however, this should only be done when
-   parsing trusted data.
-   See `WRITE-SEXP`
+element being the objective function and the rest of the elements being the
+constraints.  Note that normally `*read-eval*` is bound to `nil`, but can be
+enabled with `allow-read-eval`; however, this should only be done when
+parsing trusted data.
 
 <a name="function-linear-programming/external-formats:write-sexp"></a>**FUNCTION** - WRITE-SEXP (STREAM PROBLEM &KEY PACKAGE)  
-Writes the problem as a sexp.  The first element is the objective function
-   and the rest of the elements are the constraints
-   See `LOAD-SEXP`
+Writes the problem as a sexp.  The first element is the objective function and
+the rest of the elements are the constraints.
 
 <br>
 ### <a name="package-linear-programming/conditions"></a>**PACKAGE** - LINEAR-PROGRAMMING/CONDITIONS   
 Contains the various conditions used by this library.
 
 <a name="condition-linear-programming/conditions:nonlinear-error"></a>**CONDITION** - NONLINEAR-ERROR   
-Indicates a form was not a linear expression.  This includes
-                   the use of nonlinear functions and taking the product of
-                   multiple variables
+Indicates a form was not a linear expression. This includes the use of
+nonlinear functions and taking the product of multiple variables
 
 <a name="condition-linear-programming/conditions:infeasible-problem-error"></a>**CONDITION** - INFEASIBLE-PROBLEM-ERROR   
 Indicates the there is no feasible region.
@@ -114,16 +109,15 @@ Indicates the there is no feasible region.
 The base class for errors that occur with the solving algorithm.
 
 <a name="condition-linear-programming/conditions:infeasible-integer-constraints-error"></a>**CONDITION** - INFEASIBLE-INTEGER-CONSTRAINTS-ERROR   
-Indicates that there is no feasible region due to the integer
-                   constraints.
+Indicates that there is no feasible region due to the integer constraints.
 
 <a name="condition-linear-programming/conditions:unbounded-problem-error"></a>**CONDITION** - UNBOUNDED-PROBLEM-ERROR   
-Indicates the feasible region is unbounded such that the
-                   optimal objective value is infinite.
+Indicates the feasible region is unbounded such that the optimal objective value
+is infinite.
 
 <a name="condition-linear-programming/conditions:parsing-error"></a>**CONDITION** - PARSING-ERROR   
-Indicates an error occured while parsing a linear problem.
-                   Includes a textual description of the issue.
+Indicates an error occured while parsing a linear problem. Includes a textual
+description of the issue.
 
 <br>
 ### <a name="package-linear-programming/simplex"></a>**PACKAGE** - LINEAR-PROGRAMMING/SIMPLEX   
@@ -142,27 +136,26 @@ Contains the necessary information for a simplex tableau.
 <a name="function-linear-programming/simplex:tableau-var-count"></a>**FUNCTION** - TABLEAU-VAR-COUNT (INSTANCE)
 
 <a name="function-linear-programming/simplex:tableau-objective-value"></a>**FUNCTION** - TABLEAU-OBJECTIVE-VALUE (TABLEAU)  
-Gets the objective function value in the tableau
+Gets the objective function value in the tableau.
 
 <a name="function-linear-programming/simplex:pivot-row"></a>**FUNCTION** - PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
 Non-destructively applies a single pivot to the table.
 
 <a name="function-linear-programming/simplex:n-solve-tableau"></a>**FUNCTION** - N-SOLVE-TABLEAU (TABLEAU)  
-A non-consing version of
-   [`solve-tableau`](#function-linear-programming/simplex:solve-tableau).
+A non-consing version of [`solve-tableau`](#function-linear-programming/simplex:solve-tableau).
 
 <a name="function-linear-programming/simplex:solve-tableau"></a>**FUNCTION** - SOLVE-TABLEAU (TABLEAU)  
-Attempts to solve the tableau using the simplex method.  If a list of two
-   tableaus is given, then a two-phase version is used.
-   The original tableau is unchanged
+Attempts to solve the tableau using the simplex method. If a list of two
+tableaus is given, then a two-phase version is used. The original tableau(s) are
+unchanged.
 
 <a name="function-linear-programming/simplex:tableau-shadow-price"></a>**FUNCTION** - TABLEAU-SHADOW-PRICE (TABLEAU VAR)  
 Gets the shadow price for the given variable from the tableau
 
 <a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM)  
-Creates the tableau from the given linear problem.  If the trivial basis is
-   not feasible, instead a list is returned containing the two tableaus for a
-   two-phase simplex method.
+Creates the tableau from the given linear problem.  If the trivial basis is not
+feasible, instead a list is returned containing the two tableaus for a two-phase
+simplex method.
 
 <a name="function-linear-programming/simplex:tableau-basis-columns"></a>**FUNCTION** - TABLEAU-BASIS-COLUMNS (INSTANCE)
 
@@ -171,11 +164,11 @@ Creates the tableau from the given linear problem.  If the trivial basis is
 <a name="function-linear-programming/simplex:tableau-problem"></a>**FUNCTION** - TABLEAU-PROBLEM (INSTANCE)
 
 <a name="function-linear-programming/simplex:copy-tableau"></a>**FUNCTION** - COPY-TABLEAU (TABLEAU)  
-Copies the given tableau and it's matrix
+Copies the given tableau and it's matrix.
 
 <a name="macro-linear-programming/simplex:with-tableau-variables"></a>**MACRO** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
-Evaluates the body with the variables in `var-list` bound to their values in
-   the tableau.
+Evaluates the body with the variables in `var-list` bound to their values from
+the tableau.
 
 <a name="function-linear-programming/simplex:tableau-variable"></a>**FUNCTION** - TABLEAU-VARIABLE (TABLEAU VAR)  
 Gets the value of the given variable from the tableau
@@ -185,15 +178,15 @@ Gets the value of the given variable from the tableau
 Contains functions for processing linear expressions.
 
 <a name="function-linear-programming/expressions:scale-linear-expression"></a>**FUNCTION** - SCALE-LINEAR-EXPRESSION (EXPR SCALAR)  
-Multiplies the linear expression by the given scalar
+Multiplies the linear expression by the given scalar.
 
 <a name="function-linear-programming/expressions:format-linear-expression"></a>**FUNCTION** - FORMAT-LINEAR-EXPRESSION (ALIST)  
-Formats a linear expression as a sexp
+Formats a linear expression as a sexp.
 
 <a name="function-linear-programming/expressions:parse-linear-expression"></a>**FUNCTION** - PARSE-LINEAR-EXPRESSION (EXPR)  
-Parses the expression into a alist mapping variables to coefficients.
-   Any constant values are mapped to `+constant+`
+Parses the expression into a alist mapping variables to coefficients. Any
+constant values are mapped to `+constant+`.
 
 <a name="function-linear-programming/expressions:sum-linear-expressions"></a>**FUNCTION** - SUM-LINEAR-EXPRESSIONS (&REST EXPRS)  
-Takes a list of linear expressions and reduces it into a single expression
+Takes a list of linear expressions and reduces it into a single expression.
 
