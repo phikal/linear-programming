@@ -7,12 +7,10 @@ meta-description: The API Documentation for the linear-programming Common Lisp l
 
 <br>
 ### <a name="package-linear-programming"></a>**PACKAGE** - LINEAR-PROGRAMMING   
-The overall package for the linear programming library.
-                   It contains only the reexported symbols of
-                   [LINEAR-PROGRAMMING/PROBLEM](#package-linear-programming/problem),
-                   [LINEAR-PROGRAMMING/SOLVER](#package-linear-programming/solver),
-                   [LINEAR-PROGRAMMING/CONDITIONS](#package-linear-programming/conditions), and
-                   [LINEAR-PROGRAMMING/EXTERNAL-FORMATS](#package-linear-programming/external-formats).
+The overall package for the linear programming library. It contains only the
+reexported symbols of `linear-programming/problem`, `linear-programming/solver`,
+`linear-programming/conditioner`, and `linear-programming/external-formats`,
+plus `simplex-solver` from `linear-programming/simplex`.
 
 <br>
 ### <a name="package-linear-programming/problem"></a>**PACKAGE** - LINEAR-PROGRAMMING/PROBLEM   
@@ -47,37 +45,42 @@ The representation of a linear programming problem.
 
 <br>
 ### <a name="package-linear-programming/solver"></a>**PACKAGE** - LINEAR-PROGRAMMING/SOLVER   
-The high level linear programming solver interface. This package abstracts away
-some of the complexities of the simplex method, including integer constraints.
-See [LINEAR-PROGRAMMING/SIMPLEX](#package-linear-programming/simplex) for lower
-level control of the solver.
+The high level linear programming solver interface. This interface is able to
+wrap multiple backends. The backend can be adjusted by setting the `*solver*`
+variable. The default backend is the `simplex-solver` in the
+`linear-programming/simplex` package.
 
-<a name="function-linear-programming/solver:solution-shadow-price"></a>**FUNCTION** - SOLUTION-SHADOW-PRICE (SOLUTION VAR)  
-Gets the shadow price of the given variable in the solution.
+<a name="generic-linear-programming/solver:solution-shadow-price"></a>**GENERIC** - SOLUTION-SHADOW-PRICE (SOLUTION VARIABLE)  
+Gets the shadow price of the specified variable
 
-<a name="function-linear-programming/solver:solve-problem"></a>**FUNCTION** - SOLVE-PROBLEM (PROBLEM)  
-Solves the given linear problem.
-
-<a name="function-linear-programming/solver:solution-problem"></a>**FUNCTION** - SOLUTION-PROBLEM (INSTANCE)  
-The problem that resulted in this solution.
-
-<a name="struct-linear-programming/solver:solution"></a>**STRUCT** - SOLUTION   
-Represents a solution to a linear programming problem.
-
-<a name="macro-linear-programming/solver:with-solution-variables"></a>**MACRO** - WITH-SOLUTION-VARIABLES (VAR-LIST SOLUTION &BODY BODY)  
-Evaluates the body with the variables in `var-list` bound to their values in the
-solution.
-
-<a name="function-linear-programming/solver:solution-variable"></a>**FUNCTION** - SOLUTION-VARIABLE (SOLUTION VAR)  
-Gets the value of the given variable in the solution.
+<a name="function-linear-programming/solver:solve-problem"></a>**FUNCTION** - SOLVE-PROBLEM (PROBLEM &REST ARGS &KEY &ALLOW-OTHER-KEYS)  
+Solves the given problem using the function stored by `*solver*`. Any keyword
+arguments are passed to the solver function.
 
 <a name="macro-linear-programming/solver:with-solved-problem"></a>**MACRO** - WITH-SOLVED-PROBLEM ((OBJECTIVE-FUNC &REST CONSTRAINTS) &BODY BODY)  
 Takes the problem description, and evaluates `body` with the variables of the
 problem bound to their solution values. Additionally, the macro `shadow-price`
 is locally bound that takes a variable name and provides it's shadow price.
 
-<a name="function-linear-programming/solver:solution-objective-value"></a>**FUNCTION** - SOLUTION-OBJECTIVE-VALUE (INSTANCE)  
-The value of the objective function.
+<a name="generic-linear-programming/solver:solution-problem"></a>**GENERIC** - SOLUTION-PROBLEM (SOLUTION)  
+Gets the original problem for the solution
+
+<a name="macro-linear-programming/solver:with-solution-variables"></a>**MACRO** - WITH-SOLUTION-VARIABLES (VAR-LIST SOLUTION &BODY BODY)  
+Evaluates the body with the variables in `var-list` bound to their values in the
+solution.
+
+<a name="generic-linear-programming/solver:solution-variable"></a>**GENERIC** - SOLUTION-VARIABLE (SOLUTION VARIABLE)  
+Gets the value of the specified variable
+
+<a name="variable-linear-programming/solver:\*solver\*"></a>**VARIABLE** - \*SOLVER\*   
+The function that should be used by solve-problem. The function should take a
+problem, and any backend specific keyword arguments and returns some form of
+solution object. The solution object should support the following methods
+`solution-problem`, `solution-objective-value`, `solution-variable`, and
+`solution-shadow-price`.
+
+<a name="generic-linear-programming/solver:solution-objective-value"></a>**GENERIC** - SOLUTION-OBJECTIVE-VALUE (SOLUTION)  
+Gets the value of the objective function
 
 <br>
 ### <a name="package-linear-programming/external-formats"></a>**PACKAGE** - LINEAR-PROGRAMMING/EXTERNAL-FORMATS   
@@ -121,7 +124,9 @@ description of the issue.
 
 <br>
 ### <a name="package-linear-programming/simplex"></a>**PACKAGE** - LINEAR-PROGRAMMING/SIMPLEX   
-The actual simplex solver implementation.
+The actual simplex solver implementation for the default solver backend. This
+package should be used through the interface provided by the
+`linear-programming/solver` package.
 
 <a name="function-linear-programming/simplex:n-pivot-row"></a>**FUNCTION** - N-PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
 Destructively applies a single pivot to the table.
@@ -141,6 +146,8 @@ Gets the objective function value in the tableau.
 <a name="function-linear-programming/simplex:pivot-row"></a>**FUNCTION** - PIVOT-ROW (TABLEAU ENTERING-COL CHANGING-ROW)  
 Non-destructively applies a single pivot to the table.
 
+<a name="function-linear-programming/simplex:tableau-instance-problem"></a>**FUNCTION** - TABLEAU-INSTANCE-PROBLEM (INSTANCE)
+
 <a name="function-linear-programming/simplex:n-solve-tableau"></a>**FUNCTION** - N-SOLVE-TABLEAU (TABLEAU)  
 A non-consing version of [`solve-tableau`](#function-linear-programming/simplex:solve-tableau).
 
@@ -152,7 +159,7 @@ unchanged.
 <a name="function-linear-programming/simplex:tableau-shadow-price"></a>**FUNCTION** - TABLEAU-SHADOW-PRICE (TABLEAU VAR)  
 Gets the shadow price for the given variable from the tableau
 
-<a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM)  
+<a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM &OPTIONAL (INSTANCE-PROBLEM PROBLEM))  
 Creates the tableau from the given linear problem.  If the trivial basis is not
 feasible, instead a list is returned containing the two tableaus for a two-phase
 simplex method.
@@ -163,12 +170,11 @@ simplex method.
 
 <a name="function-linear-programming/simplex:tableau-problem"></a>**FUNCTION** - TABLEAU-PROBLEM (INSTANCE)
 
+<a name="function-linear-programming/simplex:simplex-solver"></a>**FUNCTION** - SIMPLEX-SOLVER (PROBLEM)  
+The solver interface function for the simplex backend.
+
 <a name="function-linear-programming/simplex:copy-tableau"></a>**FUNCTION** - COPY-TABLEAU (TABLEAU)  
 Copies the given tableau and it's matrix.
-
-<a name="macro-linear-programming/simplex:with-tableau-variables"></a>**MACRO** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
-Evaluates the body with the variables in `var-list` bound to their values from
-the tableau.
 
 <a name="function-linear-programming/simplex:tableau-variable"></a>**FUNCTION** - TABLEAU-VARIABLE (TABLEAU VAR)  
 Gets the value of the given variable from the tableau
