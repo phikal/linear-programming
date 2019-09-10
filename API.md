@@ -148,8 +148,9 @@ Non-destructively applies a single pivot to the table.
 
 <a name="function-linear-programming/simplex:tableau-instance-problem"></a>**FUNCTION** - TABLEAU-INSTANCE-PROBLEM (INSTANCE)
 
-<a name="function-linear-programming/simplex:n-solve-tableau"></a>**FUNCTION** - N-SOLVE-TABLEAU (TABLEAU)  
-A non-consing version of [`solve-tableau`](#function-linear-programming/simplex:solve-tableau).
+<a name="macro-linear-programming/simplex:with-tableau-variables"></a>**MACRO** - WITH-TABLEAU-VARIABLES (VAR-LIST TABLEAU &BODY BODY)  
+Evaluates the body with the variables in `var-list` bound to their values from
+the tableau.
 
 <a name="function-linear-programming/simplex:solve-tableau"></a>**FUNCTION** - SOLVE-TABLEAU (TABLEAU)  
 Attempts to solve the tableau using the simplex method. If a list of two
@@ -167,6 +168,9 @@ simplex method.
 <a name="function-linear-programming/simplex:tableau-basis-columns"></a>**FUNCTION** - TABLEAU-BASIS-COLUMNS (INSTANCE)
 
 <a name="function-linear-programming/simplex:tableau-constraint-count"></a>**FUNCTION** - TABLEAU-CONSTRAINT-COUNT (INSTANCE)
+
+<a name="function-linear-programming/simplex:n-solve-tableau"></a>**FUNCTION** - N-SOLVE-TABLEAU (TABLEAU)  
+A non-consing version of [`solve-tableau`](#function-linear-programming/simplex:solve-tableau).
 
 <a name="function-linear-programming/simplex:tableau-problem"></a>**FUNCTION** - TABLEAU-PROBLEM (INSTANCE)
 
