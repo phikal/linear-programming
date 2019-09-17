@@ -43,6 +43,9 @@ A list of variables with integer constraints.
 <a name="struct-linear-programming/problem:problem"></a>**STRUCT** - PROBLEM   
 The representation of a linear programming problem.
 
+<a name="function-linear-programming/problem:problem-free-vars"></a>**FUNCTION** - PROBLEM-FREE-VARS (INSTANCE)  
+A list of variables that may be negative.
+
 <br>
 ### <a name="package-linear-programming/solver"></a>**PACKAGE** - LINEAR-PROGRAMMING/SOLVER   
 The high level linear programming solver interface. This interface is able to
@@ -100,6 +103,9 @@ the rest of the elements are the constraints.
 <br>
 ### <a name="package-linear-programming/conditions"></a>**PACKAGE** - LINEAR-PROGRAMMING/CONDITIONS   
 Contains the various conditions used by this library.
+
+<a name="condition-linear-programming/conditions:unsupported-constraint-error"></a>**CONDITION** - UNSUPPORTED-CONSTRAINT-ERROR   
+Indicates there are unsupported constraints or properties in the given problem.
 
 <a name="condition-linear-programming/conditions:nonlinear-error"></a>**CONDITION** - NONLINEAR-ERROR   
 Indicates a form was not a linear expression. This includes the use of
