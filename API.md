@@ -53,37 +53,39 @@ wrap multiple backends. The backend can be adjusted by setting the `*solver*`
 variable. The default backend is the `simplex-solver` in the
 `linear-programming/simplex` package.
 
-<a name="generic-linear-programming/solver:solution-shadow-price"></a>**GENERIC** - SOLUTION-SHADOW-PRICE (SOLUTION VARIABLE)  
-Gets the shadow price of the specified variable
-
 <a name="function-linear-programming/solver:solve-problem"></a>**FUNCTION** - SOLVE-PROBLEM (PROBLEM &REST ARGS &KEY &ALLOW-OTHER-KEYS)  
 Solves the given problem using the function stored by `*solver*`. Any keyword
 arguments are passed to the solver function.
 
 <a name="macro-linear-programming/solver:with-solved-problem"></a>**MACRO** - WITH-SOLVED-PROBLEM ((OBJECTIVE-FUNC &REST CONSTRAINTS) &BODY BODY)  
 Takes the problem description, and evaluates `body` with the variables of the
-problem bound to their solution values. Additionally, the macro `shadow-price`
-is locally bound that takes a variable name and provides it's shadow price.
+problem bound to their solution values. Additionally, the macro `reduced-cost`
+is locally bound that takes a variable name and provides it's reduced cost.
 
 <a name="generic-linear-programming/solver:solution-problem"></a>**GENERIC** - SOLUTION-PROBLEM (SOLUTION)  
-Gets the original problem for the solution
+Gets the original problem for the solution.
 
 <a name="macro-linear-programming/solver:with-solution-variables"></a>**MACRO** - WITH-SOLUTION-VARIABLES (VAR-LIST SOLUTION &BODY BODY)  
 Evaluates the body with the variables in `var-list` bound to their values in the
-solution.
+solution. Additionally, the macro `reduced-cost` is locally bound that takes a
+variable name and provides it's reduced cost.
 
 <a name="generic-linear-programming/solver:solution-variable"></a>**GENERIC** - SOLUTION-VARIABLE (SOLUTION VARIABLE)  
-Gets the value of the specified variable
+Gets the value of the specified variable.
 
 <a name="variable-linear-programming/solver:\*solver\*"></a>**VARIABLE** - \*SOLVER\*   
 The function that should be used by solve-problem. The function should take a
 problem, and any backend specific keyword arguments and returns some form of
 solution object. The solution object should support the following methods
 `solution-problem`, `solution-objective-value`, `solution-variable`, and
-`solution-shadow-price`.
+`solution-reduced-cost`.
+
+<a name="generic-linear-programming/solver:solution-reduced-cost"></a>**GENERIC** - SOLUTION-REDUCED-COST (SOLUTION VARIABLE)  
+Gets the reduced cost (i.e. the shadow price for the lower bound) of the
+specified variable.
 
 <a name="generic-linear-programming/solver:solution-objective-value"></a>**GENERIC** - SOLUTION-OBJECTIVE-VALUE (SOLUTION)  
-Gets the value of the objective function
+Gets the value of the objective function.
 
 <br>
 ### <a name="package-linear-programming/external-formats"></a>**PACKAGE** - LINEAR-PROGRAMMING/EXTERNAL-FORMATS   
@@ -163,8 +165,9 @@ Attempts to solve the tableau using the simplex method. If a list of two
 tableaus is given, then a two-phase version is used. The original tableau(s) are
 unchanged.
 
-<a name="function-linear-programming/simplex:tableau-shadow-price"></a>**FUNCTION** - TABLEAU-SHADOW-PRICE (TABLEAU VAR)  
-Gets the shadow price for the given variable from the tableau
+<a name="function-linear-programming/simplex:tableau-reduced-cost"></a>**FUNCTION** - TABLEAU-REDUCED-COST (TABLEAU VAR)  
+Gets the reduced cost (i.e. the shadow price for the lower bound) for the given
+variable from the tableau
 
 <a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM &OPTIONAL (INSTANCE-PROBLEM PROBLEM))  
 Creates the tableau from the given linear problem.  If the trivial basis is not
