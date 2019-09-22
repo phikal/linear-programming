@@ -31,9 +31,6 @@ An array of the variables specified in the problem.
 <a name="function-linear-programming/problem:parse-linear-problem"></a>**FUNCTION** - PARSE-LINEAR-PROBLEM (OBJECTIVE-EXP CONSTRAINTS)  
 Parses the expressions into a linear programming problem
 
-<a name="function-linear-programming/problem:problem-constraints"></a>**FUNCTION** - PROBLEM-CONSTRAINTS (INSTANCE)  
-A list of (in)equality constraints.
-
 <a name="macro-linear-programming/problem:make-linear-problem"></a>**MACRO** - MAKE-LINEAR-PROBLEM (OBJECTIVE &REST CONSTRAINTS)  
 Creates a linear problem from the expressions in the body
 
@@ -43,8 +40,11 @@ A list of variables with integer constraints.
 <a name="struct-linear-programming/problem:problem"></a>**STRUCT** - PROBLEM   
 The representation of a linear programming problem.
 
-<a name="function-linear-programming/problem:problem-free-vars"></a>**FUNCTION** - PROBLEM-FREE-VARS (INSTANCE)  
-A list of variables that may be negative.
+<a name="function-linear-programming/problem:problem-var-bounds"></a>**FUNCTION** - PROBLEM-VAR-BOUNDS (INSTANCE)  
+A list of variable bounds, of the form `(var . (lower-bound . upper-bound))`.
+
+<a name="function-linear-programming/problem:problem-constraints"></a>**FUNCTION** - PROBLEM-CONSTRAINTS (INSTANCE)  
+A list of (in)equality constraints.
 
 <br>
 ### <a name="package-linear-programming/solver"></a>**PACKAGE** - LINEAR-PROGRAMMING/SOLVER   
@@ -167,7 +167,7 @@ unchanged.
 
 <a name="function-linear-programming/simplex:tableau-reduced-cost"></a>**FUNCTION** - TABLEAU-REDUCED-COST (TABLEAU VAR)  
 Gets the reduced cost (i.e. the shadow price for the lower bound) for the given
-variable from the tableau
+variable from the tableau.
 
 <a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM &OPTIONAL (INSTANCE-PROBLEM PROBLEM))  
 Creates the tableau from the given linear problem.  If the trivial basis is not
