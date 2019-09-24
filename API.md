@@ -91,6 +91,9 @@ Gets the value of the objective function.
 ### <a name="package-linear-programming/external-formats"></a>**PACKAGE** - LINEAR-PROGRAMMING/EXTERNAL-FORMATS   
 Handles reading and writing problems to external formats.
 
+<a name="function-linear-programming/external-formats:read-mps"></a>**FUNCTION** - READ-MPS (STREAM PROBLEM-TYPE &KEY PACKAGE (READ-CASE (READTABLE-CASE \*READTABLE\*))
+ (TRIM-NAMES-P T) (NUMBER-TYPE 'RATIONAL) RHS-ID)
+
 <a name="function-linear-programming/external-formats:read-sexp"></a>**FUNCTION** - READ-SEXP (STREAM &KEY ALLOW-READ-EVAL PACKAGE)  
 Loads a problem stored in sexp format.  This is a single sexp with the first
 element being the objective function and the rest of the elements being the
@@ -118,6 +121,9 @@ Indicates the there is no feasible region.
 
 <a name="condition-linear-programming/conditions:solver-error"></a>**CONDITION** - SOLVER-ERROR   
 The base class for errors that occur with the solving algorithm.
+
+<a name="condition-linear-programming/conditions:invalid-bounds-error"></a>**CONDITION** - INVALID-BOUNDS-ERROR   
+Indicates a problem with a variable's bounds.
 
 <a name="condition-linear-programming/conditions:infeasible-integer-constraints-error"></a>**CONDITION** - INFEASIBLE-INTEGER-CONSTRAINTS-ERROR   
 Indicates that there is no feasible region due to the integer constraints.
