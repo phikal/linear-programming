@@ -92,7 +92,12 @@ Gets the value of the objective function.
 Handles reading and writing problems to external formats.
 
 <a name="function-linear-programming/external-formats:read-mps"></a>**FUNCTION** - READ-MPS (STREAM PROBLEM-TYPE &KEY PACKAGE (READ-CASE (READTABLE-CASE \*READTABLE\*))
- (TRIM-NAMES-P T) (NUMBER-TYPE 'RATIONAL) RHS-ID)
+ (TRIM-NAMES-P T) (NUMBER-TYPE 'RATIONAL) RHS-ID)  
+Reads a problem in MPS format from the given stream. Note that a line starting
+with `ENDATA` ends the problem, so MPS files can be embedded in streams of other
+data. Only the fixed width version of the format is supported, but both the
+`OBJSENCE` and `OBJNAME` headers are supported and the `BV`, `LI`, and `UI`
+boundaries are supported.
 
 <a name="function-linear-programming/external-formats:read-sexp"></a>**FUNCTION** - READ-SEXP (STREAM &KEY ALLOW-READ-EVAL PACKAGE)  
 Loads a problem stored in sexp format.  This is a single sexp with the first
