@@ -4,7 +4,7 @@ meta-description:The documentation page for the linear-programming Common Lisp l
 ---
 
 # Common Lisp Linear Programming
-[![Travis Build Status](https://img.shields.io/travis/neil-lindquist/linear-programming.svg?logo=travis)](https://travis-ci.org/neil-lindquist/linear-programming)
+[![Travis Build Status](https://img.shields.io/travis/neil-lindquist/linear-programming/master?logo=travis)](https://travis-ci.org/neil-lindquist/linear-programming?branch=master)
 [![Appveyor Build status](https://ci.appveyor.com/api/projects/status/8rx1x28xxx7tkis4/branch/master?svg=true)](https://ci.appveyor.com/project/neil-lindquist/linear-programming/branch/master)
 [![Coverage Status](https://coveralls.io/repos/github/neil-lindquist/linear-programming/badge.svg?branch=master)](https://coveralls.io/github/neil-lindquist/linear-programming?branch=master)
 
@@ -18,7 +18,7 @@ This is a Common Lisp library for solving linear programming problems.
 It is implemented in pure Common Lisp, instead of calling a high performance library.
 This has the advantage of being dependent on only a couple community standard libraries (ASDF, Alexandria, Iterate).
 However, this limits the performance of solving larger problems.
-If there is interest in a high performance backend, let me know; it shouldn't be hard to make the backend modular.
+If there is interest in a high performance backend, please open an issue; the library is setup to support a high performance backend, but there has yet to be any interest in it.
 
 ## Installation
 The linear-programming library is avalible in both the main Quicklisp distribution and Ultralisp, so it can loaded with with `(ql:quickload :linear-programming)`.
