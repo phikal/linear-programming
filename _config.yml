@@ -127,10 +127,10 @@ url-pretty: "neil-lindquist.github.io"
 # --- Web Statistics Section --- #
 
 # Fill in your Google Analytics gtag.js ID to track your website using gtag
-gtag: "UA-130011901-1"
+#gtag: "UA-130011901-1"
 
 # Fill in your Google Analytics ID to track your website using GA
-google_analytics: "UA-130011901-1"
+#google_analytics: "UA-130011901-1"
 
 # Google Tag Manager ID
 #gtm: ""
