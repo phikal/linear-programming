@@ -218,5 +218,5 @@ Parses the expression into a alist mapping variables to coefficients. Any
 constant values are mapped to `+constant+`.
 
 <a name="function-linear-programming/expressions:sum-linear-expressions"></a>**FUNCTION** - SUM-LINEAR-EXPRESSIONS (&REST EXPRS)  
-Takes a list of linear expressions and reduces it into a single expression.
+Takes linear expressions and reduces it into a single expression.
 
