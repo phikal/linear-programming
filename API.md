@@ -74,7 +74,8 @@ variable name and provides it's reduced cost.
 Gets the value of the specified variable.
 
 <a name="variable-linear-programming/solver:\*solver\*"></a>**VARIABLE** - \*SOLVER\*   
-The function that should be used by solve-problem. The function should take a
+The function that should be used by solve-problem (defaults to
+`linear-programming/simplex:simplex-solver`). The function should take a
 problem, and any backend specific keyword arguments and returns some form of
 solution object. The solution object should support the following methods
 `solution-problem`, `solution-objective-value`, `solution-variable`, and
@@ -180,7 +181,7 @@ unchanged.
 Gets the reduced cost (i.e. the shadow price for the lower bound) for the given
 variable from the tableau.
 
-<a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM &OPTIONAL (INSTANCE-PROBLEM PROBLEM))  
+<a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM INSTANCE-PROBLEM &KEY (FP-TOLERANCE-FACTOR 16))  
 Creates the tableau from the given linear problem.  If the trivial basis is not
 feasible, instead a list is returned containing the two tableaus for a two-phase
 simplex method.
@@ -194,8 +195,10 @@ A non-consing version of [`solve-tableau`](#function-linear-programming/simplex:
 
 <a name="function-linear-programming/simplex:tableau-problem"></a>**FUNCTION** - TABLEAU-PROBLEM (INSTANCE)
 
-<a name="function-linear-programming/simplex:simplex-solver"></a>**FUNCTION** - SIMPLEX-SOLVER (PROBLEM)  
-The solver interface function for the simplex backend.
+<a name="function-linear-programming/simplex:simplex-solver"></a>**FUNCTION** - SIMPLEX-SOLVER (PROBLEM &REST ARGS)  
+The solver interface function for the simplex backend.  The `fp-tolerance`
+keyword argument can be used to indicate the tolerance for error on floating
+point comparisons (defaults to 16).
 
 <a name="function-linear-programming/simplex:copy-tableau"></a>**FUNCTION** - COPY-TABLEAU (TABLEAU)  
 Copies the given tableau and it's matrix.
