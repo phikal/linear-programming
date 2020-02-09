@@ -198,7 +198,7 @@ A non-consing version of [`solve-tableau`](#function-linear-programming/simplex:
 <a name="function-linear-programming/simplex:simplex-solver"></a>**FUNCTION** - SIMPLEX-SOLVER (PROBLEM &REST ARGS)  
 The solver interface function for the simplex backend.  The `fp-tolerance`
 keyword argument can be used to indicate the tolerance for error on floating
-point comparisons (defaults to 16).
+point comparisons (defaults to 1024).
 
 <a name="function-linear-programming/simplex:copy-tableau"></a>**FUNCTION** - COPY-TABLEAU (TABLEAU)  
 Copies the given tableau and it's matrix.
