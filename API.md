@@ -181,7 +181,7 @@ unchanged.
 Gets the reduced cost (i.e. the shadow price for the lower bound) for the given
 variable from the tableau.
 
-<a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM INSTANCE-PROBLEM &KEY (FP-TOLERANCE-FACTOR 16))  
+<a name="function-linear-programming/simplex:build-tableau"></a>**FUNCTION** - BUILD-TABLEAU (PROBLEM INSTANCE-PROBLEM &KEY (FP-TOLERANCE-FACTOR 1024))  
 Creates the tableau from the given linear problem.  If the trivial basis is not
 feasible, instead a list is returned containing the two tableaus for a two-phase
 simplex method.
