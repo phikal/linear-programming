@@ -100,6 +100,12 @@ data. Only the fixed width version of the format is supported, but both the
 `OBJSENCE` and `OBJNAME` headers are supported and the `BV`, `LI`, and `UI`
 boundaries are supported.
 
+<a name="function-linear-programming/external-formats:write-standard-format"></a>**FUNCTION** - WRITE-STANDARD-FORMAT (STREAM PROBLEM &KEY (UNICODEP T) (AESTHETIC-VARIABLE-NAMES-P T))  
+Writes a problem to the given stream in human readable, standard notation.  The
+`unicodep` argument controls whether to print comparisons as unicode or ascii.
+The `aesthetic-variable-names-p` argument controls whether variable names are
+printed aesthetically.
+
 <a name="function-linear-programming/external-formats:read-sexp"></a>**FUNCTION** - READ-SEXP (STREAM &KEY ALLOW-READ-EVAL PACKAGE)  
 Loads a problem stored in sexp format.  This is a single sexp with the first
 element being the objective function and the rest of the elements being the
